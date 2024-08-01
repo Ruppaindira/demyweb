@@ -1,6 +1,8 @@
-FROM  ubuntu:20.04
-RUN open jdk-17-jdk
+FROM ubuntu:20.04
+RUN apt update 
+RUN apt install openjdk-17-jdk -y  
 WORKDIR /app
-COPY target/*.war /app/app.war
-EXPOSE 9087
-CMD ["java" ,"-jar" ,"/Demy-0.0.1-SNAPSHOT.war"]
+COPY . /app
+RUN mvn clean install
+EXPOSE 8079
+CMD ["java", "-jar", "target/Demy-0.0.1-SNAPSHOT.war"]
