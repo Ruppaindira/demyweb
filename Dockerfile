@@ -1,5 +1,5 @@
-ROM openjdk:11-jdk-slim
+ROM openjdk:17-jdk-slim
 WORKDIR /app
 COPY target/*.war /app/app.war
-EXPOSE 8079
+EXPOSE 9091
 CMD ["java" ,"-jar" ,"/app/app.war"]
